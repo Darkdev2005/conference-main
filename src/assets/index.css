@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.country-list::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+.country-list::-webkit-scrollbar-thumb {
+  background: rgba(17,24,39,0.2);
+  border-radius: 8px;
+}
