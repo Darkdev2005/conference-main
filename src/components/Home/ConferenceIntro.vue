@@ -42,21 +42,6 @@
               Set in the historic city of Samarkand, TCCE-2026 will combine rigorous academic exchange
               with cultural enrichment, fostering global collaboration and interdisciplinary impact.
             </p>
-            <div class="objectives">
-              <div class="objectives-title">Objectives of the Conference</div>
-              <p class="objectives-intro">
-                As increasingly complex problems are modeled to find meaningful solutions, the roles of
-                computation and cognitive learning have become vital. The conference aims to bridge the gap
-                between theory and practice by bringing together scientists, researchers, and practitioners
-                to focus on emerging trends in computational and cognitive engineering. Specifically, TCCE-2026 seeks to:
-              </p>
-              <ul>
-                <li>Provide a forum for mathematicians, engineers, scientists, and researchers to exchange ideas and insights.</li>
-                <li>Encourage fresh perspectives on problem-solving in contemporary research areas.</li>
-                <li>Showcase diverse modelling approaches applied to health, education, finance, environment, engineering, commerce, and industry.</li>
-                <li>Promote interdisciplinary collaboration and networking among experts across multiple domains.</li>
-              </ul>
-            </div>
           </div>
         </div>
 
@@ -83,6 +68,28 @@
               <span class="chip-label">2026</span>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="objectives-section">
+      <div class="objectives-shell">
+        <div class="objectives-head">
+          <div class="objectives-title">Objectives of the Conference</div>
+          <h2 class="objectives-heading">TCCE-2026 Objectives</h2>
+          <p class="objectives-intro">
+            As increasingly complex problems are modeled to find meaningful solutions, the roles of
+            computation and cognitive learning have become vital. The conference aims to bridge the gap
+            between theory and practice by bringing together scientists, researchers, and practitioners
+            to focus on emerging trends in computational and cognitive engineering. Specifically, TCCE-2026 seeks to:
+          </p>
+        </div>
+
+        <div class="objectives-grid">
+          <article v-for="(objective, index) in objectives" :key="objective" class="objective-card">
+            <span class="objective-no">{{ String(index + 1).padStart(2, '0') }}</span>
+            <p class="objective-text">{{ objective }}</p>
+          </article>
         </div>
       </div>
     </section>
@@ -156,6 +163,13 @@ const history = [
     desc: 'November 12-13, hosted by Universiti Teknikal Malaysia Melaka (UTeM), in collaboration with IIOIR (Shimla, India) and Amity Cognitive Computing and Brain Informatics Centre (Jaipur, India). Theme: "Connecting Ideas, Computing Futures." Accepted papers slated for Springer Nature LNNS (Scopus-indexed).',
     current: true
   },
+]
+
+const objectives = [
+  'Provide a forum for mathematicians, engineers, scientists, and researchers to exchange ideas and insights.',
+  'Encourage fresh perspectives on problem-solving in contemporary research areas.',
+  'Showcase diverse modelling approaches applied to health, education, finance, environment, engineering, commerce, and industry.',
+  'Promote interdisciplinary collaboration and networking among experts across multiple domains.',
 ]
 </script>
 
@@ -233,45 +247,107 @@ const history = [
   margin-bottom: 0;
 }
 
-.objectives {
-  margin-top: 1.25rem;
-  padding: 1rem 1.25rem;
-  border-radius: 14px;
-  background: #f8faff;
-  border: 1px solid #e0e7ff;
+.objectives-section {
+  border-radius: 24px;
+  background:
+    radial-gradient(1200px 260px at 50% -80px, rgba(37, 99, 235, 0.16), transparent 60%),
+    linear-gradient(180deg, #eef4ff 0%, #f8faff 100%);
+  border: 1px solid #dbe7ff;
+  box-shadow: 0 10px 34px rgba(37, 99, 235, 0.08);
+  overflow: hidden;
+}
+
+.objectives-shell {
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.objectives-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .objectives-title {
+  width: fit-content;
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #2563eb;
-  margin-bottom: 0.65rem;
+  background: #e8f0ff;
+  border: 1px solid #c9dcff;
+  border-radius: 999px;
+  padding: 0.42rem 0.9rem;
+}
+
+.objectives-heading {
+  margin: 0;
+  font-family: 'Crimson Pro', serif;
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.15;
 }
 
 .objectives-intro {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.9rem;
-  color: #475569;
-  line-height: 1.6;
-  margin: 0 0 0.75rem;
-}
-
-.objectives ul {
   margin: 0;
-  padding-left: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  max-width: 940px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.98rem;
+  color: #334155;
+  line-height: 1.8;
 }
 
-.objectives li {
+.objectives-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+}
+
+@media (min-width: 820px) {
+  .objectives-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.objective-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #cdddfd;
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
+}
+
+.objective-no {
+  flex-shrink: 0;
+  min-width: 2rem;
+  height: 2rem;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #fff;
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.9rem;
-  color: #475569;
-  line-height: 1.6;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+.objective-text {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.96rem;
+  line-height: 1.62;
+  color: #334155;
 }
 
 .image-col {
@@ -444,6 +520,10 @@ const history = [
   .intro-section,
   .history-section {
     padding: 2rem 1.25rem;
+  }
+
+  .objectives-shell {
+    padding: 1.5rem 1rem;
   }
 
   .timeline::before {
