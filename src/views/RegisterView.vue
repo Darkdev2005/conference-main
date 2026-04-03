@@ -112,6 +112,10 @@
                   <span class="flag">🇬🇧</span>
                   <span class="contact-item-text">sazzad69@gmail.com</span>
                 </a>
+                <a href="mailto:b_akhmadkhon@mail.ru" class="contact-item">
+                  <span class="flag">UZ</span>
+                  <span class="contact-item-text">b_akhmadkhon@mail.ru</span>
+                </a>
               </div>
             </div>
 
@@ -130,6 +134,25 @@
                 <a href="tel:+998904469977" class="contact-item">
                   <span class="flag">🇬🇧</span>
                   <span class="contact-item-text">+998 90 446 99 77</span>
+                </a>
+                <a href="tel:+998505009806" class="contact-item">
+                  <span class="flag">UZ</span>
+                  <span class="contact-item-text">+998 50 500 98 06</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="divider" />
+
+            <div class="contact-group">
+              <div class="contact-group-label">
+                <Globe class="contact-group-icon contact-group-icon--purple" />
+                Website
+              </div>
+              <div class="contact-items">
+                <a href="https://www.professorsazzad.com" target="_blank" rel="noopener noreferrer" class="contact-item">
+                  <span class="flag">WEB</span>
+                  <span class="contact-item-text">www.professorsazzad.com</span>
                 </a>
               </div>
             </div>
@@ -162,11 +185,11 @@
 </template>
 
 <script>
-import { Mail, Phone, MessageSquare, Send, CheckCircle, XCircle } from 'lucide-vue-next'
+import { Mail, Phone, Globe, MessageSquare, Send, CheckCircle, XCircle } from 'lucide-vue-next'
 
 export default {
   name: 'ContactView',
-  components: { Mail, Phone, MessageSquare, Send, CheckCircle, XCircle },
+  components: { Mail, Phone, Globe, MessageSquare, Send, CheckCircle, XCircle },
   setup() {
     return { CheckCircle, XCircle }
   },
@@ -487,6 +510,7 @@ export default {
 }
 
 .contact-group-icon--green { color: #059669; }
+.contact-group-icon--purple { color: #7c3aed; }
 
 .contact-items { display: flex; flex-direction: column; gap: 0.5rem; }
 

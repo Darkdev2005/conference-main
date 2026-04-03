@@ -17,8 +17,9 @@
           rel="noopener noreferrer"
           class="partner-card"
         >
-          <div class="partner-logo-wrap">
-            <img :src="partner.logo" :alt="partner.name" class="partner-logo" />
+          <div class="partner-logo-wrap" :class="{ 'partner-logo-wrap--dark': partner.darkBg }">
+            <img v-if="partner.logo" :src="partner.logo" :alt="partner.name" class="partner-logo" />
+            <div v-else class="partner-placeholder">{{ partner.abbr }}</div>
           </div>
           <div class="partner-footer">
             <span class="partner-name">{{ partner.name }}</span>
@@ -41,6 +42,7 @@ import Image4   from '@/assets/images/GEORGIA-FS-CW.c49269db.png'
 import Image5   from '@/assets/images/1734446924181.png'
 import AiiLLogo from '@/assets/images/ACCBI Logo.png'
 import IIoIR    from '@/assets/images/IIoIR Logo 150p.png'
+import { publicAsset } from '@/utils/publicAsset'
 
 export default {
   name: 'PartnersView',
@@ -48,12 +50,15 @@ export default {
   data() {
     return {
       partners: [
-        { logo: Image1,   name: 'Samarkand State University',       link: 'https://www.samdu.uz/uz' },
-        { logo: Image3,   name: 'WashU',                            link: 'https://washu.edu/' },
-        { logo: Image4,   name: 'University of Georgia',            link: 'https://www.uga.edu' },
-        { logo: Image5,   name: 'WUST',                             link: 'https://www.wust.edu/' },
-        { logo: AiiLLogo, name: 'ACCBI Centre, India & AII Lab, UK', link: 'https://www.amity.edu/jaipur/accbi/' },
-        { logo: IIoIR,    name: 'IIoIR',                            link: 'https://www.iioir.org/' },
+        { logo: Image1,   name: 'Samarkand State University',                    link: 'https://www.samdu.uz/uz' },
+        { logo: Image3,   name: 'WashU',                                         link: 'https://washu.edu/' },
+        { logo: Image4,   name: 'University of Georgia',                         link: 'https://www.uga.edu' },
+        { logo: Image5,   name: 'WUST',                                          link: 'https://www.wust.edu/' },
+        { logo: AiiLLogo, name: 'ACCBI Centre, India & AII Lab, UK',             link: 'https://www.amity.edu/jaipur/accbi/' },
+        { logo: IIoIR,    name: 'IIoIR',                                         link: 'https://www.iioir.org/' },
+        { logo: publicAsset('images/logo-new-d2ad0e18.webp'), name: 'SIUT',      abbr: 'SIUT',     link: 'https://siut.uz/' },
+        { logo: publicAsset('images/logo.svg'), name: 'Daffodil International University', abbr: 'DIU', link: 'https://daffodilvarsity.edu.bd/' },
+        { logo: publicAsset('images/LineLogo.svg'), name: 'American International University of Bangladesh', abbr: 'AIUB', darkBg: true, link: 'https://www.aiub.edu/' },
       ],
     }
   },
@@ -152,11 +157,31 @@ export default {
   background: #fff;
 }
 
+.partner-logo-wrap--dark {
+  background: #0f172a;
+}
+
 .partner-logo {
   max-width: 100%;
   max-height: 120px;
   object-fit: contain;
   transition: transform 0.3s ease;
+}
+
+.partner-placeholder {
+  width: 92px;
+  height: 92px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #1d4ed8;
+  background: linear-gradient(145deg, #dbeafe, #eff6ff);
+  border: 1px solid #bfdbfe;
 }
 
 .partner-card:hover .partner-logo {

@@ -32,6 +32,15 @@
           <p class="footer-tagline">
             Trends in Computational and Cognitive Engineering - International Scientific Conference
           </p>
+          <div class="footer-contact-list">
+            <a href="https://www.professorsazzad.com" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+              www.professorsazzad.com
+            </a>
+            <a href="tel:+998904469977" class="footer-contact-link">+998 90 446 99 77</a>
+            <a href="mailto:sazzad69@gmail.com" class="footer-contact-link">sazzad69@gmail.com</a>
+            <a href="tel:+998505009806" class="footer-contact-link">+998 50 500 98 06</a>
+            <a href="mailto:b_akhmadkhon@mail.ru" class="footer-contact-link">b_akhmadkhon@mail.ru</a>
+          </div>
           <a
             href="https://t.me/tehi2025"
             target="_blank"
@@ -82,7 +91,7 @@
         </span>
         <span class="footer-dev">
           Developed by
-          <a href="https://t.me/shoyimobloqulov" target="_blank" rel="noopener noreferrer" class="footer-copy-link">
+          <a href="https://t.me/Husniddin77_7" target="_blank" rel="noopener noreferrer" class="footer-copy-link">
             Normo'minov Husniddin
           </a>
         </span>
@@ -220,7 +229,28 @@ export default {
   font-size: 0.8rem;
   color: #64748b;
   line-height: 1.6;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.footer-contact-link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: #93c5fd;
+  text-decoration: none;
+  line-height: 1.35;
+  width: fit-content;
+}
+
+.footer-contact-link:hover {
+  color: #dbeafe;
+  text-decoration: underline;
 }
 
 .telegram-btn {
@@ -316,5 +346,4 @@ export default {
   text-decoration: underline;
 }
 </style>
-
 

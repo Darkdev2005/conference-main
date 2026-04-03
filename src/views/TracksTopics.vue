@@ -4,7 +4,7 @@
       <div class="section-header">
         <span class="eyebrow">Research Areas</span>
         <h2 class="section-title">Tracks & Topics</h2>
-        <p class="section-desc">Five focused research tracks spanning AI, healthcare, electronics, IoT, and cybersecurity</p>
+        <p class="section-desc">Five focused tracks spanning AI, cognitive science, quantum systems, modeling, and signal processing</p>
       </div>
 
       <div class="tracks-grid">
@@ -25,6 +25,9 @@
           </div>
 
           <div class="divider" />
+
+          <p class="scope-text">{{ track.scope }}</p>
+          <p class="topics-label">Representative topics:</p>
 
           <ul class="topic-list">
             <li v-for="(topic, i) in track.topics" :key="i" class="topic-item">
@@ -49,96 +52,106 @@ export default {
         {
           image: publicAsset('images/brain.jpg'),
           title: 'Track 1',
-          subtitle: 'Artificial Intelligence and Soft Computing',
+          subtitle: 'Artificial Intelligence and Data Analytics',
+          scope: 'Scope: Research and applications combining AI methods and large-scale data analytics to extract insight, automate decisions, and deploy intelligent systems across industry and science. Emphasis on scalable algorithms, ethical/robust deployment, interpretability, and real-world evaluation.',
           accent: '#2563eb',
           topics: [
-            'Shallow Machine Learning',
-            'Artificial Intelligence',
-            'Deep Learning Neural Networks',
-            'Natural Language Processing',
-            'Intelligent Control',
-            'Predictive Analytics',
-            'Data Mining and Information Retrieval',
-            'Quantum Computing',
-            'Fuzzy Logic and Data Mining',
-            'Cloud Computing',
-            'Mathematical Modeling, Numerical Methods and Program Complexes',
+            'Machine learning (supervised, unsupervised, self-/semi-supervised)',
+            'Deep learning architectures and applications',
+            'Shallow/ensemble methods and feature engineering',
+            'Bayesian learning and probabilistic models',
+            'Data mining, knowledge discovery, and pattern mining',
+            'Explainable AI, model interpretability, and fairness',
+            'Scalable analytics, distributed/stream processing, and big data systems',
+            'Anomaly detection & intrusion detection in data streams',
+            'Hybrid intelligence (neuro-symbolic, human-in-the-loop)',
+            'Time-series forecasting and predictive analytics',
+            'Context-aware/personalized systems and recommender systems',
+            'AI for industry 4.0, IoT analytics, and edge intelligence',
+            'Evaluation metrics, reproducibility, and benchmarking',
           ],
         },
         {
           image: publicAsset('images/heartpulse.png'),
           title: 'Track 2',
-          subtitle: 'Healthcare Informatics',
+          subtitle: 'Cognitive Science and Computational Biology',
+          scope: 'Scope: Interdisciplinary work connecting cognition, neuroscience, and computational biology - modeling brain and behavior, bioinformatic methods for molecular/clinical data, and computational approaches to health and cognition.',
           accent: '#dc2626',
           topics: [
-            'Biomedical and Biomolecular Computation',
-            '2D and 3D Bioprinting Healthcare Informatics',
-            'Nano-Medicine and Their Implementations',
-            'Cognitive Psychology and Neuroscience',
-            'Bioinformatics and Neuroinformatics',
-            'Brain Informatics and Health Informatics',
-            'Computational Biology and Computational Neuroscience',
-            'Integrating Wearable Devices for Patient Care',
-            'Cybersecurity Concerns with Electronic Medical Records',
-            'Human-Robot Interfaces and Interactions for Healthcare',
-            'Mobile Computing for Digital Healthcare',
+            'Cognitive psychology, computational models of cognition, and behavior modeling',
+            'Systems and cognitive neuroscience; brain connectivity and imaging analysis',
+            'Bioinformatics: genomics, proteomics, sequence/structure analysis',
+            'Brain informatics, neural data analytics, and brain-computer interfaces',
+            'Computational biology: modeling biological systems and networks',
+            'Health informatics, clinical data analytics, and digital phenotyping',
+            'Neuro-symbolic models for cognition and learning',
+            'Cognitive architectures, memory/attention models, and language processing',
+            'Machine learning for biomedical data and biomarker discovery',
+            'Neurodegenerative disease modeling and computational psychiatry',
+            'Ethical, privacy, and translational issues in neuro/health data',
           ],
         },
         {
           image: publicAsset('images/server.jpg'),
           title: 'Track 3',
-          subtitle: 'IoT and Data Analytics',
+          subtitle: 'Quantum Algorithms and Electronics',
+          scope: 'Scope: Advances in quantum computing theory, algorithms, and quantum-enabled electronics, plus classical-quantum hybrid architectures and hardware/software co-design for quantum information processing.',
           accent: '#059669',
           topics: [
-            'Body Area Networks',
-            'Antenna Theory and Techniques for Healthcare',
-            'Sensor-Based Technology for Healthcare',
-            'Healthcare Big Data Analytics',
-            'IoT for Smart Healthcare Applications',
-            'Augmented and Virtual Reality in Healthcare',
-            'Analytical Trends in Digital Health Records',
-            'Analog and Digital Signal Processing for Healthcare',
-            'Remote Signal Analysis and Big Data Management',
-            'Computer Vision for Biosignal and Bioimage Interpretation',
-            'Healthcare IoT for Healthcare 4.0/5.0 Systems',
+            'Quantum algorithms (simulation, optimization, sampling, cryptanalysis)',
+            'Quantum complexity theory and algorithmic foundations',
+            'Quantum error correction, fault tolerance, and noise mitigation',
+            'Quantum-classical hybrid methods and variational algorithms (VQE, QAOA)',
+            'Quantum circuits, compilation, and resource estimation',
+            'Quantum hardware: superconducting, trapped ions, photonic, spin qubits',
+            'Quantum electronics, control systems, and cryogenic electronics',
+            'Quantum communications, networking, and cryptography',
+            'Quantum benchmarking, verification, and validation',
+            'Materials and device engineering for qubits',
+            'Applications: quantum chemistry, materials simulation, machine learning',
+            'Co-design of algorithms and hardware; performance/energy tradeoffs',
           ],
         },
         {
           image: publicAsset('images/cpu.png'),
           title: 'Track 4',
-          subtitle: 'Electronics',
+          subtitle: 'Mathematical and Computer Modeling',
+          scope: 'Scope: Theoretical and applied modeling using mathematical methods and computational simulation to understand, predict, and control complex systems in engineering, natural sciences, and social systems.',
           accent: '#7c3aed',
           topics: [
-            'Context-Aware Pervasive Systems for Healthcare',
-            'Hybrid Intelligent Systems for Healthcare',
-            'Digitization of Healthcare Enterprises and Systems',
-            'Wireless Sensor Networks for Healthcare',
-            'High Reliability and Low Latency Communications',
-            'Machine Learning and AI in Biomedical Equipment',
-            'Biomedical and Sensor Instrumentations',
-            'Robotic and Automation for Healthcare',
-            'Cyber-Physical Systems for Healthcare',
-            'Flexible, Wearable and Implantable Biomedical Devices',
-            'Blockchain in Healthcare Applications',
-            'Ubiquitous Network and Computing including 5G/6G',
+            'Mathematical modeling of dynamical systems, nonlinear systems, and chaos',
+            'Numerical analysis, scientific computing, and high-performance simulation',
+            'Partial differential equations, finite element/volume methods',
+            'Stochastic modeling, probabilistic methods, and uncertainty quantification',
+            'Multi-scale and multi-physics modeling, coupled systems',
+            'Optimization, control theory, and inverse problems',
+            'Agent-based models, network models, and complex systems analysis',
+            'Model reduction, surrogate modeling, and emulation',
+            'Computational epidemiology, environmental and ecological modeling',
+            'Data-driven modeling, system identification, and model calibration',
+            'Verification, validation, and reproducibility in simulations',
+            'Applications to engineering design, finance, and social sciences',
           ],
         },
         {
           image: publicAsset('images/shield.jpg'),
           title: 'Track 5',
-          subtitle: 'Cybersecurity',
+          subtitle: 'Signal Processing, Computer Vision & Engineering',
+          scope: 'Scope: Theory, algorithms, and applications in signal processing, computer vision, and related engineering disciplines, covering sensing, perception, real-time processing, and systems integration.',
           accent: '#d97706',
           topics: [
-            'Healthcare Cybersecurity',
-            'Data Privacy for Medical Records',
-            'Encryption for Healthcare IoT',
-            'Threat Detection and Mitigation in Healthcare Systems',
-            'Security of Wearable and Implantable Devices',
-            'Risk Management in Digital Health',
-            'Cyber-Physical Systems Protection',
-            'Blockchain for Health Data Security',
-            'Authentication and Authorization in Healthcare Systems',
-            'Regulatory Compliance in Health Information Security',
+            'Image and video processing, recognition, and understanding',
+            'Computer vision: object detection, tracking, segmentation, 3D vision',
+            'Machine learning for vision and signal processing',
+            'Signal processing theory, filter design, and spectral analysis',
+            'Sensor systems, sensor fusion, and data acquisition',
+            'Robotics perception and autonomy; SLAM and navigation',
+            'Virtual, augmented, and mixed reality systems',
+            'Wireless communication signal processing and antenna design',
+            'Embedded/VLSI implementations for vision and signal algorithms',
+            'Audio/speech processing, biometrics, and pattern recognition',
+            'AI-based signal timing and cyber-physical sensor networks',
+            'Real-time systems, low-latency inference, and edge deployment',
           ],
         },
       ],
@@ -292,7 +305,25 @@ export default {
 .divider {
   height: 1px;
   background: rgba(0, 0, 0, 0.06);
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.9rem;
+}
+
+.scope-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.84rem;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0 0 1rem;
+}
+
+.topics-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #334155;
+  margin: 0 0 0.65rem;
 }
 
 .topic-list {

@@ -8,23 +8,55 @@
           <div class="prose">
             <p>
               The International Conference on Trends in Computational and Cognitive Engineering (TCCE)
-              is an annual interdisciplinary forum at the intersection of cognitive science and
-              computational engineering.
+              is an annual premier interdisciplinary platform that fosters innovation at the intersection
+              of cognitive science and computational engineering.
             </p>
             <p>
-              Established in 2019 by Prof. Kanad Ray and Prof. Anirban Bandyopadhyay, the conference
-              series has evolved into a strong platform for researchers, academics, industry professionals,
-              and students to exchange ideas and build collaborations.
+              Established in 2019 by two Founder Members, Prof. Kanad Ray and Prof. Anirban Bandyopadhyay,
+              TCCE has grown into a vital forum for researchers, academics, industry professionals, and students
+              to exchange ideas on topics such as artificial intelligence, machine learning, neuroscience,
+              data analytics, robotics, and sustainable computing applications across sectors like health,
+              education, finance, environment, and engineering.
             </p>
             <p>
-              TCCE 2026 at Samarkand State University, Uzbekistan, focuses on AI, machine learning,
-              neuroscience, data analytics, robotics, and sustainable computing applications across
-              health, education, finance, environment, and engineering sectors.
+              The series began in 2019 and has grown steadily, with editions hosted across Asian institutions
+              (primarily India, Bangladesh, and Malaysia) to promote regional and global collaboration.
+              Proceedings are commonly published by Springer in the Lecture Notes in Networks and Systems (LNNS)
+              series (Scopus-indexed), which features selected papers on topics such as health, education,
+              finance, the environment, engineering, and intelligent systems.
             </p>
             <p>
-              The event bridges theory and practice by combining technical discussion, interdisciplinary
-              problem solving, and global networking in the historic city of Samarkand.
+              Samarkand State University, named after Sharof Rashidov, Uzbekistan, will host the
+              8th International Conference on Trends in Computational and Cognitive Engineering (TCCE-2026)
+              at Samarkand, Uzbekistan. The conference brings together researchers, academicians, and industry
+              experts worldwide to share advances in Cognitive Science and Computational Engineering.
             </p>
+            <p>
+              TCCE-2026 provides a dynamic platform for presenting innovations, discussing challenges,
+              and exploring solutions across disciplines. Cognitive Science integrates psychology, neuroscience,
+              linguistics, philosophy, and computer science to study human thought and intelligence, while
+              Computational Engineering applies advanced algorithms, simulations, and mathematical models
+              to solve complex engineering problems.
+            </p>
+            <p>
+              Set in the historic city of Samarkand, TCCE-2026 will combine rigorous academic exchange
+              with cultural enrichment, fostering global collaboration and interdisciplinary impact.
+            </p>
+            <div class="objectives">
+              <div class="objectives-title">Objectives of the Conference</div>
+              <p class="objectives-intro">
+                As increasingly complex problems are modeled to find meaningful solutions, the roles of
+                computation and cognitive learning have become vital. The conference aims to bridge the gap
+                between theory and practice by bringing together scientists, researchers, and practitioners
+                to focus on emerging trends in computational and cognitive engineering. Specifically, TCCE-2026 seeks to:
+              </p>
+              <ul>
+                <li>Provide a forum for mathematicians, engineers, scientists, and researchers to exchange ideas and insights.</li>
+                <li>Encourage fresh perspectives on problem-solving in contemporary research areas.</li>
+                <li>Showcase diverse modelling approaches applied to health, education, finance, environment, engineering, commerce, and industry.</li>
+                <li>Promote interdisciplinary collaboration and networking among experts across multiple domains.</li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -85,19 +117,19 @@ const history = [
     year: '2019',
     edition: 'TCCE 2019 (Inception)',
     place: 'Central University of Haryana, Mahendergarh, India',
-    desc: 'Held on November 28-30, 2019. First edition of the series with Springer proceedings in Advances in Intelligent Systems and Computing.'
+    desc: 'Held November 28-30 at Central University of Haryana, Mahendergarh, India. First edition of the series, with proceedings published by Springer (Advances in Intelligent Systems and Computing). Focused on foundational computational and cognitive modeling approaches across diverse domains.'
   },
   {
     year: '2020',
     edition: 'TCCE 2020',
     place: 'Jahangirnagar University, Dhaka, Bangladesh',
-    desc: 'Held on December 17-18, 2020. Focused on innovations in computational and cognitive engineering.'
+    desc: 'Hosted by Jahangirnagar University, Dhaka, Bangladesh (December 17-18). Emphasized innovations in computational and cognitive engineering, with IEEE association noted in some records.'
   },
   {
     year: '2021',
     edition: 'TCCE 2021 (3rd)',
     place: 'UTHM, Batu Pahat, Malaysia',
-    desc: 'Held on October 21-22, 2021 with online/hybrid participation and Springer LNNS Volume 348 proceedings.'
+    desc: 'October 21-22, hosted by Universiti Tun Hussein Onn Malaysia (UTHM), Batu Pahat, Malaysia (online/hybrid elements likely due to pandemic). Proceedings in Springer LNNS Vol. 348.'
   },
   {
     year: '2022',
@@ -109,19 +141,19 @@ const history = [
     year: '2023',
     edition: 'TCCE 2023 (5th)',
     place: 'PSIT, Kanpur, India',
-    desc: 'Held on November 24-25, 2023 with expanded scale and Springer proceedings in two volumes.'
+    desc: 'November 24-25, Pranveer Singh Institute of Technology (PSIT), Kanpur, India. Larger scale with proceedings in Springer (two volumes, around 84 papers total).'
   },
   {
     year: '2024',
     edition: 'TCCE 2024 (6th)',
     place: 'Amity University Rajasthan, Jaipur, India',
-    desc: 'Held on December 26-27, 2024 with Springer LNNS publication.'
+    desc: 'December 26-27, Amity University Rajasthan, Jaipur, India. Proceedings in Springer LNNS (37 papers in one volume).'
   },
   {
     year: '2025',
     edition: 'TCCE 2025 (7th)',
     place: 'UTeM, Malaysia',
-    desc: 'Held on November 12-13, 2025 in collaboration with IIoIR and ACCBI Centre under the theme "Connecting Ideas, Computing Futures."',
+    desc: 'November 12-13, hosted by Universiti Teknikal Malaysia Melaka (UTeM), in collaboration with IIOIR (Shimla, India) and Amity Cognitive Computing and Brain Informatics Centre (Jaipur, India). Theme: "Connecting Ideas, Computing Futures." Accepted papers slated for Springer Nature LNNS (Scopus-indexed).',
     current: true
   },
 ]
@@ -199,6 +231,47 @@ const history = [
 
 .prose p:last-child {
   margin-bottom: 0;
+}
+
+.objectives {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  background: #f8faff;
+  border: 1px solid #e0e7ff;
+}
+
+.objectives-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #2563eb;
+  margin-bottom: 0.65rem;
+}
+
+.objectives-intro {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0 0 0.75rem;
+}
+
+.objectives ul {
+  margin: 0;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.objectives li {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.6;
 }
 
 .image-col {
