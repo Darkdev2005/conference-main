@@ -127,17 +127,15 @@
                 Phone
               </div>
               <div class="contact-items">
-                <a href="tel:+998939995149" class="contact-item">
-                  <span class="flag">🇺🇿</span>
-                  <span class="contact-item-text">+998 93 999 51 49</span>
+                
+               
+                <a href="tel:+998505009806" class="contact-item">
+                  <span class="flag">UZ</span>
+                  <span class="contact-item-text">+998 50 500 98 06</span>
                 </a>
                 <a href="tel:+998904469977" class="contact-item">
                   <span class="flag">🇬🇧</span>
                   <span class="contact-item-text">+998 90 446 99 77</span>
-                </a>
-                <a href="tel:+998505009806" class="contact-item">
-                  <span class="flag">UZ</span>
-                  <span class="contact-item-text">+998 50 500 98 06</span>
                 </a>
               </div>
             </div>

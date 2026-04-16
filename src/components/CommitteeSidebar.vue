@@ -12,7 +12,7 @@
           v-for="section in sections"
           :key="section.key"
           class="committee-card"
-          :class="{ 'card-wide': section.items.length > 10 }"
+          :class="{ 'card-wide': section.wide ?? section.items.length > 10 }"
         >
           <div class="card-title-row">
             <span class="card-icon" :style="{ background: roleColor(section.key) }">
@@ -52,6 +52,7 @@ const ROLE_COLORS = {
   webmaster: '#059669',
   technicalProgramChairs: '#7c3aed',
   tpcMembers: '#1d4ed8',
+  organisingCommitteeTop: '#6d28d9',
   tpcorganizing: '#6d28d9',
 }
 
@@ -90,6 +91,20 @@ export default {
             'Dr. Mufti Mahmud, Nottingham Trent University, UK',
             'Dr. Shamim Al Mamun, Jahangirnagar University, Bangladesh',
             'Dr. M Shamim Kaiser, Jahangirnagar University, Bangladesh',
+          ],
+        },
+        {
+          key: 'organisingCommitteeTop',
+          title: 'Organising Committee',
+          wide: false,
+          items: [
+            'Khalmuradov Rustam Ibragimovich - Professor, Doctor of Technical Sciences, Uzbekistan.',
+            'Komilov Mirzayan - Academician, Professor, Doctor of Technical Sciences, Uzbekistan.',
+            'Munish Sabharwal - Professor, Doctor of Technical Sciences, India.',
+            'Arvind Dagur - Professor, Doctor of Technical Sciences, India.',
+            'Ashwini Renavekar - Professor, Doctor of Engineering Sciences, India.',
+            'Jumanov Israil - Professor, Doctor of Technical Sciences, Uzbekistan.',
+            'Full Organising Committee list is provided in the detailed section below.',
           ],
         },
         {
