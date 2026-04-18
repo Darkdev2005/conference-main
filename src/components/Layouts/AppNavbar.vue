@@ -131,7 +131,7 @@ export default {
     return {
       mobileOpen: false,
       mobileExpanded: null,
-      logoUrl: publicAsset('images/samarkand State University.png'),
+      logoUrl: publicAsset('images/samarkand State University-Photoroom.png'),
       universityAvatarUrl: publicAsset('IMG_20240913_150533_321.jpg')
     };
   },
@@ -180,7 +180,7 @@ export default {
 }
 
 .brand-logo {
-  height: 80px;
+  height: 85px;
   width: auto;
 }
 
