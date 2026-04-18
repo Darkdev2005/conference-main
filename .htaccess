@@ -2,10 +2,18 @@
   RewriteEngine On
   RewriteBase /
 
-  # Agar fayl yoki papka mavjud bo‘lsa, uni och
+  # Always serve compiled app entry on root request.
+  RewriteRule ^$ dist/index.html [L]
+
+  # If file is not in repo root but exists under dist, serve it from dist.
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/dist/$1 -f [OR]
+  RewriteCond %{DOCUMENT_ROOT}/dist/$1 -d
+  RewriteRule ^(.*)$ dist/$1 [L]
 
-  # Boshqa barcha so‘rovlarni index.html ga yo‘naltir
-  RewriteRule ^.*$ index.html [L]
+  # SPA fallback.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ dist/index.html [L]
 </IfModule>
