@@ -4,7 +4,7 @@
       <div class="section-header">
         <span class="eyebrow">Research Areas</span>
         <h2 class="section-title">Tracks & Topics</h2>
-        <p class="section-desc">Five focused tracks spanning AI, cognitive science, quantum systems, modeling, and signal processing</p>
+        <p class="section-desc">Six focused tracks spanning AI, cognitive science, quantum systems, modeling, signal processing, and cyber security</p>
       </div>
 
       <div class="tracks-grid">
@@ -152,6 +152,33 @@ export default {
             'Audio/speech processing, biometrics, and pattern recognition',
             'AI-based signal timing and cyber-physical sensor networks',
             'Real-time systems, low-latency inference, and edge deployment',
+          ],
+        },
+        {
+          image: publicAsset('images/shield.jpg'),
+          title: 'Track 6',
+          subtitle: 'Information Systems Architecture and Cyber Security',
+          scope: 'Scope: This session examines critical dimensions of the modern digital landscape, with a focus on safeguarding systems, networks, and data against evolving cyber threats. It brings together perspectives from information systems architecture and cybersecurity to address design, resilience, and risk management challenges.',
+          accent: '#0f766e',
+          topics: [
+            'Secure software development and secure software life cycle management',
+            'Software defined network protocols',
+            'Network security',
+            'SDN security and privacy',
+            'Software testing and quality assurance',
+            'Cloud security',
+            'Hybrid cloud infrastructure for IoT',
+            'Data protection and privacy',
+            'Security and risk assessment and penetration testing',
+            'SOC, threat hunting and incident response',
+            'Malware analysis and reverse engineering',
+            'AI applications in cybersecurity',
+            'Cybersecurity regulations, compliance and governance',
+            'Secure software development and DevSecOps',
+            'Operating systems security',
+            'Cryptography',
+            'Information systems architecture',
+            'AI and cybersecurity in fintech and regtech',
           ],
         },
       ],

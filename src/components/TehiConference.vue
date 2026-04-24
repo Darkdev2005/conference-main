@@ -9,5 +9,5 @@
 </template>
 
 <script setup>
-import conferenceImage from '@/assets/images/The 8th International Conference on TCCE-2026 (1).png';
+import conferenceImage from '@/assets/images/photo_2026-04-21_19-19-31.jpg';
 </script>
