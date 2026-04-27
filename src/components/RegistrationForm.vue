@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div class="min-h-screen flex items-center justify-center bg-gray-100 p-4 my-24">
     <div class="w-full max-w-xl bg-white rounded-lg shadow-lg p-6">
       <h1 class="text-2xl font-semibold text-slate-800 mb-4">Conference Registration</h1>
@@ -48,8 +48,8 @@
                 />
               </div>
 
-              <button v-if="selectedCountry" type="button" class="text-slate-500" @click="clearCountry">✕</button>
-              <button type="button" class="text-slate-400" @click="toggleOpen" aria-label="toggle">▾</button>
+              <button v-if="selectedCountry" type="button" class="text-slate-500" @click="clearCountry">x</button>
+              <button type="button" class="text-slate-400" @click="toggleOpen" aria-label="toggle">v</button>
             </div>
 
             <!-- Dropdown -->
@@ -89,7 +89,7 @@
               <div
                 class="flex items-center justify-between px-3 py-2 border-t border-slate-100 bg-slate-50 text-xs text-slate-500"
               >
-                <div>Showing {{ startIndex + 1 }}–{{ Math.min(endIndex, filtered.length) }} of {{ filtered.length }}</div>
+                <div>Showing {{ startIndex + 1 }}-{{ Math.min(endIndex, filtered.length) }} of {{ filtered.length }}</div>
                 <div class="flex gap-2">
                   <button type="button" class="px-2 py-1 rounded disabled:opacity-40" :disabled="page === 1" @click="prevPage">Prev</button>
                   <button
@@ -157,8 +157,8 @@
 
         <!-- Buttons -->
         <div class="flex items-center justify-between mt-6">
-          <button type="submit" :disabled="!valid" class="bg-indigo-600 text-white px-4 py-2 rounded-md disabled:opacity-50">
-            Submit
+          <button type="submit" :disabled="!valid || sending" class="bg-indigo-600 text-white px-4 py-2 rounded-md disabled:opacity-50">
+            {{ sending ? 'Sending...' : 'Submit' }}
           </button>
           <button type="button" @click="reset" class="text-sm text-slate-600">Reset</button>
         </div>
@@ -201,6 +201,7 @@ const form = reactive({
 
 const resultMessage = ref('')
 const resultSuccess = ref(false)
+const sending = ref(false)
 
 const valid = computed(() => {
   return (
@@ -256,6 +257,10 @@ async function fetchCountries() {
 }
 function onCountrySearch() {
   const q = (countrySearch.value || '').toLowerCase().trim()
+  form.country = countrySearch.value.trim()
+  if (selectedCountry.value && selectedCountry.value.name?.common !== form.country) {
+    selectedCountry.value = null
+  }
   page.value = 1
   if (!q) {
     filtered.value = countries.value
@@ -286,52 +291,69 @@ function reset() {
   countrySearch.value = ''
 }
 
-// ✅ Telegram message sender
+// вњ… Telegram message sender
 async function handleSubmit() {
+  if (sending.value) return
+
   resultMessage.value = ''
   resultSuccess.value = false
 
   if (!valid.value) {
     resultMessage.value = 'Please fill required fields correctly.'
-    toastr.error(resultMessage.value, '⚠️ Warning')
+    toastr.error(resultMessage.value, 'Warning')
     return
   }
 
-  const token = '7760774030:AAGthk__sJtQa6V6kBVtdAKkBfJznA29Jr0'
-  const chatIds = [
-    '6840537054',
-    '80265294',
-  ]
+  const token = (import.meta.env.VITE_TELEGRAM_TOKEN || '').trim()
+  const chatIdsRaw = (import.meta.env.VITE_TELEGRAM_CHAT_IDS || '').trim()
+  const singleChatId = (import.meta.env.VITE_TELEGRAM_CHAT_ID || '').trim()
+  const chatIds = chatIdsRaw
+    ? chatIdsRaw.split(',').map((id) => id.trim()).filter(Boolean)
+    : (singleChatId ? [singleChatId] : [])
 
-  const message = `
-📝 *New Registration:*
-👤 *Name:* ${form.firstName} ${form.lastName}
-🌍 *Country:* ${form.country}
-🆔 *Article ID:* ${form.articleId || '-'}
-📘 *Article Title:* ${form.articleTitle || '-'}
-🎯 *Participation:* ${form.participation || '-'}
-`
+  if (!token || chatIds.length === 0) {
+    resultMessage.value = 'Telegram settings are missing.'
+    toastr.error(resultMessage.value, 'Error')
+    return
+  }
 
+  const message = [
+    'New Registration:',
+    `Name: ${form.firstName} ${form.lastName}`,
+    `Country: ${form.country}`,
+    `Article ID: ${form.articleId || '-'}`,
+    `Article Title: ${form.articleTitle || '-'}`,
+    `Participation: ${form.participation || '-'}`,
+  ].join('\n')
+
+  sending.value = true
   try {
-
-    await Promise.all(
-      chatIds.map(id =>
+    const responses = await Promise.all(
+      chatIds.map((id) =>
         axios.post(`https://api.telegram.org/bot${token}/sendMessage`, {
           chat_id: id,
           text: message,
-          parse_mode: 'Markdown',
         })
       )
     )
 
-    toastr.success('Your message has been sent!', '✅ Success')
+    const hasTelegramError = responses.some((response) => response?.data?.ok === false)
+    if (hasTelegramError) {
+      throw new Error('Telegram API returned an error response')
+    }
+
+    toastr.success('Your message has been sent!', 'Success')
     resultMessage.value = 'Message successfully sent to Telegram.'
     resultSuccess.value = true
     reset()
   } catch (error) {
     console.error('Telegram send error:', error)
-    toastr.error('Message failed to send. Try again later.', '❌ Error')
-    resultMessage.value = 'Message failed to send. Try again later.'
+    const tgMessage = error?.response?.data?.description
+    const uiError = tgMessage ? `Message failed: ${tgMessage}` : 'Message failed to send. Try again later.'
+    toastr.error(uiError, 'Error')
+    resultMessage.value = uiError
+  } finally {
+    sending.value = false
   }
 }
 
@@ -355,3 +377,4 @@ watch(countrySearch, v => {
   display: inline-block;
 }
 </style>
+

@@ -26,15 +26,15 @@
         <div class="footer-brand">
           <RouterLink to="/" class="footer-brand-link">
             <img :src="footerLogoUrl" alt="TCCE" class="footer-logo" />
-            <img :src="footerUniversityLogoUrl" alt="SamSU" class="footer-logo rounded-full" />
+            <img :src="footerUniversityLogoUrl" alt="SamSU" class="footer-logo footer-logo-university" />
           </RouterLink>
           <div class="footer-brand-name">TCCE 2026</div>
           <p class="footer-tagline">
             Trends in Computational and Cognitive Engineering - International Scientific Conference
           </p>
           <div class="footer-contact-list">
-            <a href="https://www.professorsazzad.com" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
-              www.professorsazzad.com
+            <a href="https:// www.tcce2026.uz" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
+             www.tcce2026.uz
             </a>
             <a href="tel:+998904469977" class="footer-contact-link">+998 90 446 99 77</a>
             <a href="mailto:sazzad69@gmail.com" class="footer-contact-link">sazzad69@gmail.com</a>
@@ -42,7 +42,7 @@
             <a href="mailto:b_akhmadkhon@mail.ru" class="footer-contact-link">b_akhmadkhon@mail.ru</a>
           </div>
           <a
-            href="https://t.me/tehi2025"
+            href="https://t.me/tcce2026"
             target="_blank"
             rel="noopener noreferrer"
             class="telegram-btn"
@@ -107,7 +107,7 @@ export default {
   name: 'AppFooter',
   data() {
     return {
-      footerLogoUrl: publicAsset('logo-removebg-preview.png'),
+      footerLogoUrl: publicAsset('images/samarkand State University-Photoroom.png'),
       footerUniversityLogoUrl: publicAsset('IMG_20240913_150533_321.jpg'),
     }
   },
@@ -206,13 +206,16 @@ export default {
 }
 
 .footer-logo {
-  height: 36px;
+  height: 90px;
   width: auto;
 }
 
-.rounded-full {
+.footer-logo-university {
+  height: 64px;
+  width: auto;
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: contain;
+  display: block;
 }
 
 .footer-brand-name {
@@ -346,4 +349,3 @@ export default {
   text-decoration: underline;
 }
 </style>
-

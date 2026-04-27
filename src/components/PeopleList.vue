@@ -101,6 +101,7 @@ import Picture38  from '../assets/images/Invited Speakers5.png'
 import Picture39  from '../assets/images/338kanadray.jpg'
 import Picture40  from '../assets/images/Chen_Zhuo_Adam_HPAM.jpg'
 import Picture41  from '../assets/images/photo_2025-11-03_17-55-58.jpg'
+import Picture42  from '../assets/images/Jimbo.jpg'
 
 export default {
   name: 'PeopleList',
@@ -113,23 +114,66 @@ export default {
       speakerData: {
         'Inaugural Session': [
           {
-            name: 'Xalmuradov Rustam Ibragimovich',
-            title: 'Chief Guest, Rector of Samarkand State University',
-            institution: 'Samarkand',
+            name: 'Rustam Xalmuradov Ibragimovich',
+            title: 'Doctor of Economics, Professor',
+            institution: `Doctor of Economics, Professor. Former Rector of Samarkand State University. Has extensive experience in higher education management, economic research, and academic leadership. Author of numerous scientific articles and educational works in the field of economics. Contributed significantly to the development of the higher education system and regional economic studies in Uzbekistan.`,
             image: Picture1,
             showDetails: false,
           },
         ],
         'Guest of Honor': [
-          { name: 'Axatov Akmal Rustamovich', title: 'Vice-Rector for International Cooperation', institution: 'Samarkand State University', image: Picture12, showDetails: false },
-          { name: 'Soleyev Ahmadjon Soleyevich', title: 'First Vice-Rector for Academic Affairs', institution: 'Samarkand State University', image: Picture13, showDetails: false },
-          { name: 'Xushvaqtov Hakim Abdulhaqovich', title: 'Leading Expert in Molecular Spectroscopy', institution: 'Samarkand State University', image: Picture14, showDetails: false },
+          {
+            name: 'Axatov Akmal Rustamovich',
+            title: 'Doctor of Technical Sciences, Professor',
+            institution: `Doctor of Technical Sciences, Professor. Researcher in the fields of digital technologies and artificial intelligence. Has extensive experience in information technologies, data analysis, and software development. Author of numerous scientific articles and research works. Contributed to the training of specialists and the development of modern IT and AI systems in Uzbekistan.`,
+            image: Picture12,
+            showDetails: false
+          },
+          {
+            name: 'Soleev Ahmadjon Soleevich',
+            title: 'First Vice-Rector for Academic Affairs, Professor of Algebra and Geometry',
+            institution: `Professor of Algebra and Geometry at Samarkand State University and First Vice-Rector for Academic Affairs since 2017. An experienced academic leader specializing in higher education management, curriculum development, and quality assurance. Oversees the implementation of modern teaching methods, digital and distance learning technologies, and faculty development. Actively engaged in advancing international collaboration and training highly qualified specialists in line with national and global education standards.`,
+            image: Picture13,
+            showDetails: false
+          },
+          {
+            name: 'Xushvaktov Hakim Abdilxakovich',
+            title: 'Vice-Rector for Research and Innovation',
+            institution: `Vice-Rector for Research and Innovation at Samarkand State University since 2018. An experienced academic administrator with strong expertise in research management, innovation development, and higher education systems. Oversees the implementation of national education policies, advancement of scientific research, integration of modern technologies in teaching, and quality assurance processes. Actively promotes international collaboration, supports talented students and researchers, and contributes to the development of academic staff and institutional performance in line with global standards.`,
+            image: Picture14,
+            showDetails: false
+          },
           { name: 'Engr. Abubokor Hanip', title: 'Founder & President, Washington University of Science and Technology', institution: 'Engr. Abubokor Hanip, a distinguished entrepreneur and educationist from Bangladesh, has forged a remarkable career rooted in innovation, hard work, and dedication. Over the past two decades, he has pioneered transformative skill development and job placement models through his flagship initiative, PeopleNTech Institute of Information Technology (PIIT), operating across the USA, Canada, Bangladesh, and beyond. A graduate in Electrical and Electronic Engineering from CUET and holder of a Master\'s in Computer Science from NYIT, he has extensive experience working with IBM, the Department of Defense, IRS, FDIC, and Oracle Corporation. He has empowered over 10,000 individuals to secure high-paying IT roles and is the first Bangladeshi American to establish a model university in the USA - Washington University of Science and Technology.', image: Picture18, showDetails: false },
         ],
         'Plenary Talk': [
-          { name: 'Nazarov Fayzullo Makhmadiyarovich', title: 'Head of the Department of Information Technology', institution: 'Samarkand State University', image: Picture4, showDetails: false },
-          { name: 'Nurmamatov Mekhriddin Kahramonovich', title: 'Head of the Department of Management Theory and Information Security', institution: 'Samarkand State University', image: Picture5, showDetails: false },
-          { name: 'Sazzad Hossain', title: 'PhD in Computer Science and Engineering, Professor', institution: 'Samarkand State University', image: Picture6, showDetails: false },
+          {
+            name: 'Nazarov Fayzullo Makhmadiyarovich',
+            title: 'Dean, Faculty of Artificial Intelligence and Digital Technologies',
+            institution: `Dean of the Faculty of Artificial Intelligence and Digital Technologies at Samarkand State University since 2023. Previously served as Head of the Department of Artificial Intelligence and Information Systems (2022-2023), Head of the Department of Information Technologies (2021-2022), and Assistant at the same department (2015-2019). An emerging academic leader specializing in artificial intelligence, information systems, and digital technologies. Actively involved in advancing research, modernizing education, and integrating innovative solutions into academic programs. International experience includes an internship at Galgotias University, contributing to global academic collaboration and knowledge exchange.`,
+            image: Picture4,
+            showDetails: false
+          },
+          {
+            name: 'Nurmamatov Mekhriddin Kahramonovich',
+            title: 'PhD in Technical Sciences, Associate Professor',
+            institution: `PhD in Technical Sciences, Associate Professor at Samarkand State University. In 2022, defended a doctoral dissertation on the topic of automated regulation of labor relations based on employment modeling in the labor market. Since 2024, has been working at the Department of Control Theory and Information Security. Author of 1 textbook, 2 methodological manuals, 4 patents, and over 50 scientific publications, including 7 articles indexed in Scopus and Web of Science. Research interests focus on control systems, labor market modeling, and information security, with active contributions to internationally recognized scientific journals and conferences.`,
+            image: Picture5,
+            showDetails: false
+          },
+          {
+            name: 'Sazzad Hossain',
+            title: 'PhD in Computer Science and Engineering, Professor',
+            institution: `Distinguished academic leader, researcher, and technology strategist with over three decades of experience in quantum computing, artificial intelligence, cybersecurity, IoT, robotics, and digital transformation. He has a strong track record in university teaching, scholarly research, and industry-academia collaboration, as well as in startup development and innovation ecosystem building. He has contributed to educational reform through OER and blended learning design, national education governance, and leadership in the satellite sector. Actively engaged in organizing international conferences and promoting cross-border academic collaboration across Bangladesh, the USA, Russia, and Uzbekistan.`,
+            image: Picture6,
+            showDetails: false
+          },
+          {
+            name: 'Dr. Jimbo H. Claver',
+            title: 'Professor, PhD Supervisor, Dean of School, and JSPS Fellow',
+            institution: `Dr. Jimbo H. Claver received in 2000 the Ph.D. degree in Applied Mathematics and Statistics from Lomonosov Moscow State University and completed his post-doctoral studies at the Institute of Statistical Mathematics in Tokyo, Japan. Currently, he is Full Professor and Dean of the French Higher School of Engineering and Commerce (FHSEC) at the Samarkand International University of Technology (SIUT). His previous positions include Assistant Dean and Head of the Department of Mathematics at the American International University (Kuwait), Full Professor of Applied Mathematics at the American University of Afghanistan, Associate Professor of Applied Mathematics at the Nara Institute of Science and Technology (Japan), Visiting Professor of Applied Mathematics at Waseda University (Japan), Assistant Professor of Mathematics and Statistics at Lakeland College, Tokyo (Japan), Senior Lecturer at the University of York (United Kingdom), Lecturer at Sino British College-Shanghai Institute of Science and Technology (China), Visiting Research Fellow at Swiss Banking Institute (Zurich), and Visiting Fellow at Morehouse College, Atlanta, Georgia (USA). His research focuses on system modelling, predictive analysis, system control, stochastic processes, applied probability, applied statistics, data analysis, quantitative finance, and actuarial science. In addition, he serves as editor and reviewer of several international journals and is a member of the International Mathematical Union (IMU), Japan Mathematical Society (JMS), Japan Statistical Society (JSS), and Moscow Mathematical Society (MMS). He has published eight books and numerous scientific papers in pure mathematics, applied mathematics, applied statistics, quantitative finance, quantitative risk management, and data analysis in peer-reviewed journals and conference proceedings. He has also organized numerous international workshops and conferences and supervised countless MSc, PhD, and MBA students.`,
+            image: Picture42,
+            showDetails: false
+          },
           { name: 'Normakhmad Ravshanov', title: 'Adviser to the Director on Science', institution: 'Doctor of Technical Sciences, Professor. Scientific Advisor to the Director of the Research Institute for the Development of Digital Technologies and Artificial Intelligence. Over 44 years of experience in mathematical modeling, informatization and ICT. Author of more than 450 scientific articles, 10+ monographs, and 25+ software certificates. Supervised 1 Doctor of Science, 1 Candidate of Science and 16 Doctors of Philosophy in technical sciences.', image: Picture25, showDetails: false },
           { name: 'Xidong Deng', title: 'AI and Machine Learning for Public Health', institution: 'Ph.D. IT leader and public health informatics expert with 15+ years at the CDC. As Lead Computer Scientist and Data Architect at NCCDPHP, she spearheaded AI integration, cloud modernization, and deployed OpenAI-powered public health surveillance systems. Founder of the NCCDPHP AI Community of Practice. Ph.D. in Computer Science from Penn State University.', image: Picture2, showDetails: false },
           { name: 'Prof. Dr. Andrei Tchernykh', title: 'Full Professor, CICESE Research Center, Mexico; Adjunct Chief Scientist, ISP RAS', institution: 'Leading expert in parallel and cloud computing, AI, and high-performance systems. Heads the Laboratory of Parallel and Cloud Computing at CICESE. SNI Level 3 researcher, founding member of Mexico\'s Supercomputer Society. Published over 360 scientific papers, chaired 50+ conferences, mentored 50+ PhD and Master\'s students.', image: Picture26, showDetails: false },
@@ -143,9 +187,27 @@ export default {
           { name: "Dr. Haider's", title: 'Application of Big Data Analytics to Predict and Prevent STI Infections among People Living with HIV in Georgia, USA', institution: "Research focuses on theoretically sound, culturally appropriate data-driven interventions to alleviate mental health problems and stigma among historically marginalized populations. Physician by training, Ph.D. in Health Services Policy and Management from USC (2017). Post-doctoral training in Big Data Analytics at USC (2019).", image: Picture16, showDetails: false },
         ],
         'Session Chairs': [
-          { name: 'Habiba Abdiyeva', title: 'Teacher at Samarkand State University, PhD', institution: 'Department of Information Technology, Samarkand State University', image: Picture7, showDetails: false },
-          { name: 'Rashidov Akbar', title: 'Head of the Department of Artificial Intelligence and Information Systems', institution: 'Samarkand State University', image: Picture8, showDetails: false },
-          { name: 'Yarmatov Sherzodjon', title: 'Doctor of Philosophy (PhD) in Technical Sciences, Associate Professor', institution: 'Samarkand State University', image: Picture9, showDetails: false },
+          {
+            name: 'Habiba Abdiyeva',
+            title: 'PhD Researcher, Department of Software Engineering',
+            institution: `PhD researcher at the Department of Software Engineering at Samarkand State University, specializing in medical image analysis and artificial intelligence. Her research focuses on algorithms for segmentation and diagnosis of breast tumor regions based on mammography images under the supervision of Prof. Shavkat Fazilov at the Research Institute for the Development of Digital Technologies and Artificial Intelligence. She has authored around 30 scientific publications in international journals and conference proceedings across the USA, UK, Germany, France, India, Poland, Russia, and Georgia, with 5 papers indexed in Scopus and Web of Science.`,
+            image: Picture7,
+            showDetails: false
+          },
+          {
+            name: 'Rashidov Akbar',
+            title: 'Associate Professor, Department of Artificial Intelligence and Information Systems',
+            institution: `Associate Professor at the Department of Artificial Intelligence and Information Systems at Samarkand State University. In 2023, he successfully defended his PhD dissertation on Optimal Data Stream Allocation Algorithms. During his academic career, Akbar Rashidov has authored around 50 scientific publications, including 1 textbook and 1 teaching-methodological manual. He holds intellectual property certificates for approximately 10 software solutions issued by the Intellectual Property Agency. He has also published 9 articles in Scopus and Web of Science indexed journals, including publications in Q1 and Q2 quartile journals.`,
+            image: Picture8,
+            showDetails: false
+          },
+          {
+            name: 'Yarmatov Sherzodjon',
+            title: 'PhD in Technical Sciences, Associate Professor, Head of Department',
+            institution: `PhD in Technical Sciences, Associate Professor, and Head of the Department of Artificial Intelligence and Information Systems at Samarkand State University since 2025. He is the author of one textbook, one teaching manual, and three methodological guides. His scientific output includes 10 international and 5 national publications, as well as 9 articles indexed in Scopus and Web of Science. He also holds 5 software registration certificates issued by the State Patent Committee.`,
+            image: Picture9,
+            showDetails: false
+          },
           { name: 'Dr. Touhid Bhuiyan', title: 'Professor & Assistant Director, School of IT, Washington University of Science and Technology, USA', institution: 'Leading cybersecurity expert. Research spans AI, machine learning, cyber security, trust management, big data analytics, health informatics and e-Learning. Ph.D. from Queensland University of Technology. Certified Ethical Hacker with Oxford Cyber Risk certificate. Author of 170+ research publications. Former Director, DIU Cyber Security Centre.', image: Picture19, showDetails: false },
           { name: 'Paul Eliopoulos', title: 'Director, School of IT, Washington University of Science and Technology, USA', institution: '30+ years of international executive experience in change management, business strategy and management consulting. Former CIO of the Metropolitan Police Department, DC. Held executive positions at AT&T, Arthur Andersen, Ernst & Young, and Cambridge Technology Partners. Chartered Fellow of the British Computer Society and Six Sigma Black Belt.', image: Picture20, showDetails: false },
           { name: 'Dr. Necmi Mutlu', title: 'Lead Faculty, School of IT, Washington University of Science and Technology, USA', institution: 'Ph.D. from George Mason University. Over a decade of IT training and cybersecurity consulting experience. Trained and mentored 4,000+ students. Specializes in CompTIA Security+, CEH, and CISSP certifications. Known for hands-on, student-centered teaching and career guidance.', image: Picture21, showDetails: false },
