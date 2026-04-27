@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <section class="contact-section">
     <div class="contact-inner">
 
@@ -102,17 +102,17 @@
                 Email
               </div>
               <div class="contact-items">
-                <a href="mailto:tehi2025@umail.uz" class="contact-item">
-                  <span class="flag">🇺🇿</span>
-                  <span class="contact-item-text">tehi2025@umail.uz</span>
-                </a>
-                <a href="mailto:sazzad69@gmail.com" class="contact-item">
-                  <span class="flag">🇬🇧</span>
-                  <span class="contact-item-text">sazzad69@gmail.com</span>
+                <a href="mailto:bobokhonov_a@samdu.uz" class="contact-item">
+                  <span class="flag">UZ</span>
+                  <span class="contact-item-text">bobokhonov_a@samdu.uz</span>
                 </a>
                 <a href="mailto:b_akhmadkhon@mail.ru" class="contact-item">
                   <span class="flag">UZ</span>
                   <span class="contact-item-text">b_akhmadkhon@mail.ru</span>
+                </a>
+                <a href="mailto:sazzad69@gmail.com" class="contact-item">
+                  <span class="flag">UZ</span>
+                  <span class="contact-item-text">sazzad69@gmail.com</span>
                 </a>
               </div>
             </div>
@@ -132,7 +132,7 @@
                   <span class="contact-item-text">+998 50 500 98 06</span>
                 </a>
                 <a href="tel:+998904469977" class="contact-item">
-                  <span class="flag">🇬🇧</span>
+                  <span class="flag">UZ</span>
                   <span class="contact-item-text">+998 90 446 99 77</span>
                 </a>
               </div>
@@ -588,3 +588,4 @@ export default {
 
 .quick-svg { width: 16px; height: 16px; }
 </style>
+

@@ -37,9 +37,10 @@
              www.tcce2026.uz
             </a>
             <a href="tel:+998904469977" class="footer-contact-link">+998 90 446 99 77</a>
-            <a href="mailto:sazzad69@gmail.com" class="footer-contact-link">sazzad69@gmail.com</a>
             <a href="tel:+998505009806" class="footer-contact-link">+998 50 500 98 06</a>
+            <a href="mailto:bobokhonov_a@samdu.uz" class="footer-contact-link">bobokhonov_a@samdu.uz</a>
             <a href="mailto:b_akhmadkhon@mail.ru" class="footer-contact-link">b_akhmadkhon@mail.ru</a>
+            <a href="mailto:sazzad69@gmail.com" class="footer-contact-link">sazzad69@gmail.com</a>
           </div>
           <a
             href="https://t.me/tcce2026"
