@@ -98,13 +98,10 @@ export default {
           title: 'Organising Committee',
           wide: false,
           items: [
-            'Khalmuradov Rustam Ibragimovich - Professor, Doctor of Technical Sciences, Uzbekistan.',
-            'Komilov Mirzayan - Academician, Professor, Doctor of Technical Sciences, Uzbekistan.',
-            'Munish Sabharwal - Professor, Doctor of Technical Sciences, India.',
-            'Arvind Dagur - Professor, Doctor of Technical Sciences, India.',
-            'Ashwini Renavekar - Professor, Doctor of Engineering Sciences, India.',
-            'Jumanov Israil - Professor, Doctor of Technical Sciences, Uzbekistan.',
-            'Full Organising Committee list is provided in the detailed section below.',
+            'Dr. Akmal Axatov - Vice-Rector of Samarkand State University, Professor',
+            'Dr. Sazzad Hossain - Professor of Samarkand State University',
+            'Dr. Fayzullo Nazarov - Dean of the Faculty of Artificial Intelligence and Digital Technologies of Samarkand State University',
+            'Dr. Mehriddin Nurmamatov - Head of the Control Theory and Information Security Department of Samarkand State University',
           ],
         },
         {

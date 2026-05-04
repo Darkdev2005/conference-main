@@ -205,32 +205,55 @@ export default {
     async submitForm() {
       this.sending = true
       const token = (import.meta.env.VITE_TELEGRAM_TOKEN || '').trim()
-      const chatId = (import.meta.env.VITE_TELEGRAM_CHAT_ID || '').trim()
-      const plainText = `New Contact Submission\nEmail: ${this.form.email}\nPhone: ${this.form.phone}\nMessage: ${this.form.message}`
-      const markdownText = `*New Contact Submission*\nEmail: ${this.form.email}\nPhone: ${this.form.phone}\nMessage: ${this.form.message}`
+      const chatIdsRaw = (import.meta.env.VITE_TELEGRAM_CHAT_IDS || '').trim()
+      const singleChatId = (import.meta.env.VITE_TELEGRAM_CHAT_ID || '').trim()
+      const chatIds = chatIdsRaw
+        ? chatIdsRaw.split(',').map((id) => id.trim()).filter(Boolean)
+        : (singleChatId ? [singleChatId] : [])
+      const plainText = [
+        'New Contact Submission',
+        `Email: ${this.form.email}`,
+        `Phone: ${this.form.phone}`,
+        `Message: ${this.form.message}`,
+      ].join('\n')
 
       try {
-        if (!token || !chatId) {
+        if (!token || chatIds.length === 0) {
           throw new Error('Telegram bot settings are missing')
         }
 
-        const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ chat_id: chatId, text: markdownText, parse_mode: 'Markdown' }),
-        })
+        const responses = await Promise.all(
+          chatIds.map((id) =>
+            fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ chat_id: id, text: plainText }),
+            })
+          )
+        )
 
-        const result = await response.json()
-        if (!response.ok || !result.ok) {
-          throw new Error(result?.description || 'Telegram API error')
+        const results = await Promise.all(
+          responses.map(async (response) => {
+            let json = null
+            try {
+              json = await response.json()
+            } catch {
+              json = null
+            }
+            return { response, json }
+          })
+        )
+
+        const failed = results.find(({ response, json }) => !response.ok || !json?.ok)
+        if (failed) {
+          throw new Error(failed.json?.description || 'Telegram API error')
         }
 
         this.showToast('success', 'Your message has been sent successfully!')
         this.form = { email: '', phone: '', message: '' }
-      } catch {
-        const fallback = `https://t.me/share/url?url=${encodeURIComponent('https://www.tcce2026.uz')}&text=${encodeURIComponent(plainText)}`
-        window.open(fallback, '_blank', 'noopener,noreferrer')
-        this.showToast('error', 'Telegram bot is unavailable. Opened Telegram share as fallback.')
+      } catch (error) {
+        const details = error?.message || 'Telegram bot is unavailable.'
+        this.showToast('error', `Failed to send: ${details}`)
       } finally {
         this.sending = false
       }

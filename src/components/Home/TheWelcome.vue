@@ -85,9 +85,22 @@
       </div>
 
       <div class="countdown-wrap">
-        <div class="status-badge status-live">
+        <div v-if="!countdownEnded" class="countdown-shell" aria-live="polite">
+          <div class="countdown-head">
+            <CalendarDays class="status-icon" />
+            <span>Countdown to 12 November 2026</span>
+          </div>
+          <div class="countdown">
+            <div v-for="unit in countdownUnits" :key="unit.label" class="countdown-unit">
+              <span :key="unit.value" class="countdown-num">{{ unit.value }}</span>
+              <span class="countdown-label">{{ unit.label }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div v-else class="status-badge status-ended">
           <CalendarDays class="status-icon" />
-          Official dates will be announced soon
+          Conference is live now
         </div>
       </div>
     </div>
@@ -95,7 +108,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 import { CalendarDays } from 'lucide-vue-next'
 import { publicAsset } from '@/utils/publicAsset'
 
@@ -115,16 +128,42 @@ const submissionDetailsUrl = publicAsset('paper')
 
 const currentIndex = ref(0)
 let sliderTimer = null
+let countdownTimer = null
+const conferenceStartTs = new Date('2026-11-12T00:00:00+05:00').getTime()
+const remainingMs = ref(Math.max(0, conferenceStartTs - Date.now()))
+
+const countdownEnded = computed(() => remainingMs.value <= 0)
+const countdownUnits = computed(() => {
+  const totalSeconds = Math.floor(remainingMs.value / 1000)
+  const days = Math.floor(totalSeconds / 86400)
+  const hours = Math.floor((totalSeconds % 86400) / 3600)
+  const minutes = Math.floor((totalSeconds % 3600) / 60)
+  const seconds = totalSeconds % 60
+
+  return [
+    { label: 'Days', value: String(days).padStart(3, '0') },
+    { label: 'Hours', value: String(hours).padStart(2, '0') },
+    { label: 'Minutes', value: String(minutes).padStart(2, '0') },
+    { label: 'Seconds', value: String(seconds).padStart(2, '0') },
+  ]
+})
+
+const updateCountdown = () => {
+  remainingMs.value = Math.max(0, conferenceStartTs - Date.now())
+}
 
 const nextSlide = () => { currentIndex.value = (currentIndex.value + 1) % images.length }
 const prevSlide = () => { currentIndex.value = (currentIndex.value - 1 + images.length) % images.length }
 
 onMounted(() => {
+  updateCountdown()
   sliderTimer = setInterval(nextSlide, 4500)
+  countdownTimer = setInterval(updateCountdown, 1000)
 })
 
 onBeforeUnmount(() => {
   clearInterval(sliderTimer)
+  clearInterval(countdownTimer)
 })
 </script>
 
@@ -440,42 +479,74 @@ onBeforeUnmount(() => {
 .countdown-wrap {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .countdown {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.countdown-shell {
+  width: 100%;
+  max-width: 640px;
+  background:
+    linear-gradient(rgba(18, 30, 64, 0.82), rgba(18, 30, 64, 0.82)) padding-box,
+    linear-gradient(120deg, rgba(96, 165, 250, 0.8), rgba(56, 189, 248, 0.4), rgba(74, 222, 128, 0.8)) border-box;
+  border: 1px solid transparent;
+  border-radius: 22px;
+  backdrop-filter: blur(12px);
+  padding: 0.95rem 1rem 1.1rem;
+  box-shadow: 0 18px 50px rgba(2, 8, 26, 0.5), inset 0 0 40px rgba(96, 165, 250, 0.12);
+  animation: shell-glow 4s ease-in-out infinite;
+}
+
+.countdown-head {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.8rem;
+  color: #dbeafe;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
 }
 
 .countdown-unit {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: linear-gradient(180deg, rgba(12, 33, 77, 0.9), rgba(9, 23, 56, 0.9));
+  border: 1px solid rgba(147, 197, 253, 0.35);
   backdrop-filter: blur(10px);
-  border-radius: 14px;
-  padding: 1rem 1.25rem;
-  min-width: 72px;
+  border-radius: 16px;
+  padding: 0.9rem 0.95rem;
+  min-width: 88px;
+  box-shadow: inset 0 0 24px rgba(96, 165, 250, 0.08);
 }
 
 .countdown-num {
-  font-family: 'Crimson Pro', serif;
-  font-size: 2.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2.1rem;
   font-weight: 700;
-  color: #fff;
+  color: #f8fbff;
   line-height: 1;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
+  text-shadow: 0 0 18px rgba(96, 165, 250, 0.45);
+  animation: digit-pop 0.45s ease;
 }
 
 .countdown-label {
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.62rem;
+  font-size: 0.66rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
-  margin-top: 4px;
+  color: rgba(191, 219, 254, 0.8);
+  margin-top: 5px;
 }
 
 .status-badge {
@@ -522,6 +593,26 @@ onBeforeUnmount(() => {
   100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
 }
 
+@keyframes shell-glow {
+  0%, 100% {
+    box-shadow: 0 18px 50px rgba(2, 8, 26, 0.5), inset 0 0 40px rgba(96, 165, 250, 0.12);
+  }
+  50% {
+    box-shadow: 0 22px 58px rgba(2, 8, 26, 0.62), inset 0 0 60px rgba(34, 211, 238, 0.16);
+  }
+}
+
+@keyframes digit-pop {
+  0% {
+    opacity: 0.6;
+    transform: translateY(5px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .fade-slide-enter-active,
 .fade-slide-leave-active {
   transition: opacity 1s ease;
@@ -533,12 +624,14 @@ onBeforeUnmount(() => {
 }
 
 @media (max-width: 640px) {
+  .countdown-shell { padding: 0.8rem 0.7rem 0.9rem; }
+  .countdown-head { font-size: 0.78rem; margin-bottom: 0.65rem; }
   .countdown { gap: 0.5rem; }
-  .countdown-unit { min-width: 58px; padding: 0.75rem 0.75rem; }
-  .countdown-num { font-size: 1.75rem; }
+  .countdown-unit { min-width: 68px; padding: 0.65rem 0.55rem; border-radius: 12px; }
+  .countdown-num { font-size: 1.55rem; }
+  .countdown-label { font-size: 0.58rem; }
   .hero-meta { flex-direction: column; gap: 0.4rem; }
   .meta-divider { display: none; }
 }
 </style>
-
 

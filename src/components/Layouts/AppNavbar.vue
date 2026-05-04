@@ -123,6 +123,7 @@
 import MarqueeBar from './MarqueeBar.vue';
 import NavDropdown from './NavDropdown.vue';
 import { publicAsset } from '@/utils/publicAsset';
+import mainConferenceLogo from '@/assets/images/photo_2026-05-04_15-12-20.jpg';
 
 export default {
   name: 'AppNavbar',
@@ -131,7 +132,7 @@ export default {
     return {
       mobileOpen: false,
       mobileExpanded: null,
-      logoUrl: publicAsset('images/samarkand State University-Photoroom.png'),
+      logoUrl: mainConferenceLogo,
       universityAvatarUrl: publicAsset('IMG_20240913_150533_321.jpg')
     };
   },
@@ -180,8 +181,9 @@ export default {
 }
 
 .brand-logo {
-  height: 85px;
-  width: auto;
+  width: 110px;
+  height: 90px;
+  object-fit: fill;
 }
 
 .brand-text {
